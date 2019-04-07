@@ -321,6 +321,7 @@
             this.squareButton.TabStop = false;
             this.squareButton.Text = "x²";
             this.squareButton.UseVisualStyleBackColor = true;
+            this.squareButton.Click += new System.EventHandler(this.squareButton_Click);
             // 
             // recipricolButton
             // 
@@ -332,6 +333,7 @@
             this.recipricolButton.TabStop = false;
             this.recipricolButton.Text = "1/x";
             this.recipricolButton.UseVisualStyleBackColor = true;
+            this.recipricolButton.Click += new System.EventHandler(this.recipricolButton_Click);
             // 
             // Calculator
             // 

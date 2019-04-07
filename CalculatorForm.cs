@@ -91,5 +91,13 @@ namespace Calculator {
         private void rootButton_Click(object sender, EventArgs e) {
             setState(state.nextState(21));
         }
+
+        private void squareButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(22));
+        }
+
+        private void recipricolButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(23));
+        }   
     }
 }

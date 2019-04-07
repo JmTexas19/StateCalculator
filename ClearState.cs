@@ -31,7 +31,7 @@ namespace Calculator {
         public const int percentEvent = 20;
         public const int rootEvent = 21;
         public const int squareEvent = 22;
-        public const int recipricolEvent = 23;
+        public const int reciprocolEvent = 23;
 
         //Process next event
         public ClearState nextState(int stateEvent) {
@@ -39,7 +39,6 @@ namespace Calculator {
             Form calc = Application.OpenForms[0];
             TextBox resultText = calc.Controls["resultText"] as TextBox;
             int index;
-            double resultDouble;
 
             switch (stateEvent) {
                 //Cases 0-9
@@ -78,6 +77,7 @@ namespace Calculator {
                         resultText.Text = resultText.Text.Trim('-');
                     }
                     return new ClearState();
+
                 case decimalEvent:
                     if (!resultText.Text.Contains('.')) { 
                         resultText.Text = resultText.Text.Insert(resultText.Text.Length, ".");
@@ -86,6 +86,7 @@ namespace Calculator {
                     else {
                         return new ClearState();
                     }
+
                 case backspaceEvent:
                     if (!resultText.Text.Equals("0")) {
                         //Make sure text box isn't left blank
@@ -101,6 +102,7 @@ namespace Calculator {
                     else {
                         return new ClearState();
                     }
+
                 case equalEvent:
                     //Trim end if . or 0 or .0
                     if (resultText.Text.Contains(".")) {
@@ -123,6 +125,32 @@ namespace Calculator {
 
                     //Root Result
                     resultText.Text = Math.Sqrt(Double.Parse(resultText.Text)).ToString();
+                    return new ResultState();
+
+                case reciprocolEvent:
+                    //Trim end if . or 0 or .0
+                    if (resultText.Text.Contains(".")) {
+                        index = resultText.Text.IndexOf('.');
+                        if (resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
+                            resultText.Text = resultText.Text.TrimEnd('0', '.');
+                        }
+                    }
+
+                    //Recipricol
+                    resultText.Text = (1 / Double.Parse(resultText.Text)).ToString();
+                    return new ResultState();
+
+                case squareEvent:
+                    //Trim end if . or 0 or .0
+                    if (resultText.Text.Contains(".")) {
+                        index = resultText.Text.IndexOf('.');
+                        if (resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
+                            resultText.Text = resultText.Text.TrimEnd('0', '.');
+                        }
+                    }
+
+                    //Square
+                    resultText.Text =  Math.Pow(Double.Parse(resultText.Text), 2).ToString();
                     return new ResultState();
             }
 
