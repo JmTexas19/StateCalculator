@@ -79,6 +79,8 @@ namespace Calculator {
 
                 //Clear Cases
                 case ceEvent:
+                    resultText.Text = "0";
+                    return new ClearState(op, firstOperand);
                 case cEvent:
                     resultText.Text = "0";
                     return new ClearState();
@@ -139,6 +141,9 @@ namespace Calculator {
                         if (resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
                             resultText.Text = resultText.Text.TrimEnd('0', '.');
                         }
+                    }
+                    else {
+                        resultText.Text = previousOperation(resultText);
                     }
 
                     return new ResultState();

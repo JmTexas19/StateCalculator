@@ -46,6 +46,14 @@ namespace Calculator {
                 case divideEvent:
                     return new NextOperandState("/", firstOperand);
 
+                //Clear Cases
+                case ceEvent:
+                    resultText.Text = "0";
+                    return new ClearState(op, firstOperand);
+                case cEvent:
+                    resultText.Text = "0";
+                    return new ClearState();
+
                 //Other Cases
                 case decimalEvent:
                     resultText.Text = "0.";
