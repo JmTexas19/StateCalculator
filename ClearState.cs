@@ -87,16 +87,16 @@ namespace Calculator {
 
                 //Operation Cases
                 case addEvent:
-                    resultText.Text = previousOperation(resultText);
+                    if(op != null) resultText.Text = previousOperation(resultText);
                     return new NextOperandState("+", resultText.Text);
                 case subtractEvent:
-                    resultText.Text = previousOperation(resultText);
+                    if (op != null) resultText.Text = previousOperation(resultText);
                     return new NextOperandState("-", resultText.Text);
                 case multiplyEvent:
-                    resultText.Text = previousOperation(resultText);
+                    if (op != null) resultText.Text = previousOperation(resultText);
                     return new NextOperandState("x", resultText.Text);
                 case divideEvent:
-                    resultText.Text = previousOperation(resultText);
+                    if (op != null) resultText.Text = previousOperation(resultText);
                     return new NextOperandState("/", resultText.Text);
 
                 //Other Cases
