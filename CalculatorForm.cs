@@ -83,5 +83,9 @@ namespace Calculator {
         private void backButton_Click(object sender, EventArgs e) {
             setState(state.nextState(19));
         }
+
+        private void equalButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(12));
+        }
     }
 }

@@ -110,6 +110,7 @@
             this.equalButton.TabStop = false;
             this.equalButton.Text = "=";
             this.equalButton.UseVisualStyleBackColor = true;
+            this.equalButton.Click += new System.EventHandler(this.equalButton_Click);
             // 
             // oneButton
             // 

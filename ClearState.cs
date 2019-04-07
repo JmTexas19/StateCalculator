@@ -8,30 +8,30 @@ using System.Windows.Forms;
 namespace Calculator {
     class ClearState : State {
         //Events
-        const int zeroEvent = 0;
-        const int oneEvent = 1;
-        const int twoEvent = 2;
-        const int threeEvent = 3;
-        const int fourEvent = 4;
-        const int fiveEvent = 5;
-        const int sixEvent = 6;
-        const int sevenEvent = 7;
-        const int eightEvent = 8;
-        const int nineEvent = 9;
-        const int negativeEvent = 10;
-        const int decimalEvent = 11;
-        const int equalEvent = 12;
-        const int plusEvent = 13;
-        const int minusEvent = 14;
-        const int timesEvent = 15;
-        const int divideEvent = 16;
-        const int ceEvent = 17;
-        const int cEvent = 18;
-        const int backspaceEvent = 19;
-        const int percentEvent = 20;
-        const int rootEvent = 21;
-        const int squareEvent = 22;
-        const int recipricolEvent = 23;
+        public const int zeroEvent = 0;
+        public const int oneEvent = 1;
+        public const int twoEvent = 2;
+        public const int threeEvent = 3;
+        public const int fourEvent = 4;
+        public const int fiveEvent = 5;
+        public const int sixEvent = 6;
+        public const int sevenEvent = 7;
+        public const int eightEvent = 8;
+        public const int nineEvent = 9;
+        public const int negativeEvent = 10;
+        public const int decimalEvent = 11;
+        public const int equalEvent = 12;
+        public const int plusEvent = 13;
+        public const int minusEvent = 14;
+        public const int timesEvent = 15;
+        public const int divideEvent = 16;
+        public const int ceEvent = 17;
+        public const int cEvent = 18;
+        public const int backspaceEvent = 19;
+        public const int percentEvent = 20;
+        public const int rootEvent = 21;
+        public const int squareEvent = 22;
+        public const int recipricolEvent = 23;
 
         //Process next event
         public ClearState nextState(int stateEvent) {
@@ -99,6 +99,15 @@ namespace Calculator {
                     else {
                         return new ClearState();
                     }
+                case equalEvent:
+                    int index = resultText.Text.IndexOf('.');
+
+                    //Trim end if . or 0 or .0
+                    if(resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
+                        resultText.Text = resultText.Text.TrimEnd('0', '.');
+                    }
+
+                    return new ResultState();
             }
 
             return new ClearState();
