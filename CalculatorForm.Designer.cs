@@ -85,6 +85,7 @@
             this.zeroButton.TabStop = false;
             this.zeroButton.Text = "0";
             this.zeroButton.UseVisualStyleBackColor = true;
+            this.zeroButton.Click += new System.EventHandler(this.zeroButton_Click);
             // 
             // decimalButton
             // 
@@ -118,6 +119,7 @@
             this.oneButton.TabStop = false;
             this.oneButton.Text = "1";
             this.oneButton.UseVisualStyleBackColor = true;
+            this.oneButton.Click += new System.EventHandler(this.oneButton_Click);
             // 
             // twoButton
             // 

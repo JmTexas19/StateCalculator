@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace Calculator {
     interface State {
-        void nextState(int stateEvent);
+        ClearState nextState(int stateEvent);
     }
 }

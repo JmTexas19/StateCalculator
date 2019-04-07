@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Calculator {
-    class NextOperand : State {
-        public void nextState(int stateEvent) {
-
+    class NextOperandState : State {
+        public ClearState nextState(int stateEvent) {
+            return new ClearState();
         }
     }
 }

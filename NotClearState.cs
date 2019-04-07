@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Calculator {
-    class NotClear : State {
-        public void nextState(int stateEvent) {
-
+    class NotClearState : State {
+        public ClearState nextState(int stateEvent) {
+            return new ClearState();
         }
     }
 }
