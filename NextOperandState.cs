@@ -35,10 +35,6 @@ namespace Calculator {
                     //Replace Result
                     resultText.Text = stateEvent.ToString();
                     return new ClearState(op, firstOperand);                     
-
-                case addEvent:
-                    //Complete Previous Operation
-                    return new NextOperandState("+", resultText.Text);
             }
 
             return new NextOperandState(op, firstOperand);
