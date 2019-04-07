@@ -70,7 +70,7 @@ namespace Calculator {
 
                 case equalEvent:
                     resultText.Text = calculateOperation(resultText);
-                    return new ResultState();
+                    return new ResultState(op, firstOperand);
 
                 case rootEvent:
                     resultText.Text = Math.Sqrt(Double.Parse(resultText.Text)).ToString();

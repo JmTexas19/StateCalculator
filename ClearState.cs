@@ -135,6 +135,8 @@ namespace Calculator {
                     }
 
                 case equalEvent:
+                    string secondOperand;
+
                     //Trim end if . or 0 or .0
                     if (resultText.Text.Contains(".")) {
                         index = resultText.Text.IndexOf('.');
@@ -142,11 +144,10 @@ namespace Calculator {
                             resultText.Text = resultText.Text.TrimEnd('0', '.');
                         }
                     }
-                    else {
-                        resultText.Text = previousOperation(resultText);
-                    }
+                    secondOperand = resultText.Text;
+                    resultText.Text = previousOperation(resultText);
 
-                    return new ResultState();
+                    return new ResultState(op, secondOperand);
 
                 case rootEvent:
                     resultText.Text = Math.Sqrt(Double.Parse(resultText.Text)).ToString();
