@@ -40,7 +40,7 @@ namespace Calculator {
                 //Clear Cases
                 case ceEvent:
                     resultText.Text = "0";
-                    return new ClearState(op, secondOperand);
+                    return new ResultState(op, secondOperand);
                 case cEvent:
                     resultText.Text = "0";
                     return new ClearState();
@@ -63,7 +63,7 @@ namespace Calculator {
                     else {
                         resultText.Text = resultText.Text.Trim('-');
                     }
-                    return new ClearState(op, secondOperand);
+                    return new ResultState(op, secondOperand);
 
                 case decimalEvent:
                     if (!resultText.Text.Contains('.')) {
@@ -82,24 +82,21 @@ namespace Calculator {
                             resultText.Text = resultText.Text.TrimEnd('0', '.');
                         }
                     }
-                    else {
                         resultText.Text = previousOperation(resultText);
-
-                    }
 
                     return new ResultState(op, secondOperand);
 
                 case rootEvent:
                     resultText.Text = Math.Sqrt(Double.Parse(resultText.Text)).ToString();
-                    return new ClearState(op, secondOperand);
+                    return new ResultState(op, secondOperand);
 
                 case reciprocolEvent:
                     resultText.Text = (1 / Double.Parse(resultText.Text)).ToString();
-                    return new ClearState(op, secondOperand);
+                    return new ResultState(op, secondOperand);
 
                 case squareEvent:
                     resultText.Text = Math.Pow(Double.Parse(resultText.Text), 2).ToString();
-                    return new ClearState(op, secondOperand);
+                    return new ResultState(op, secondOperand);
             }
 
             return new ResultState(op, secondOperand);
@@ -113,13 +110,13 @@ namespace Calculator {
                 return (Double.Parse(secondOperand) + result).ToString();
             }
             else if (op.Contains("-")) {
-                return (Double.Parse(secondOperand) - result).ToString();
+                return (result - (Double.Parse(secondOperand))).ToString();
             }
             else if (op.Contains("x")) {
                 return (Double.Parse(secondOperand) * result).ToString();
             }
             else if (op.Contains("/")) {
-                return (Double.Parse(secondOperand) / result).ToString();
+                return (result / (Double.Parse(secondOperand))).ToString();
             }
             else {
                 return resultText.Text;
