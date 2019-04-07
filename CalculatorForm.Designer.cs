@@ -131,6 +131,7 @@
             this.twoButton.TabStop = false;
             this.twoButton.Text = "2";
             this.twoButton.UseVisualStyleBackColor = true;
+            this.twoButton.Click += new System.EventHandler(this.twoButton_Click);
             // 
             // threeButton
             // 
@@ -142,6 +143,7 @@
             this.threeButton.TabStop = false;
             this.threeButton.Text = "3";
             this.threeButton.UseVisualStyleBackColor = true;
+            this.threeButton.Click += new System.EventHandler(this.threeButton_Click);
             // 
             // plusButton
             // 
@@ -164,6 +166,7 @@
             this.fourButton.TabStop = false;
             this.fourButton.Text = "4";
             this.fourButton.UseVisualStyleBackColor = true;
+            this.fourButton.Click += new System.EventHandler(this.fourButton_Click);
             // 
             // fiveButton
             // 
@@ -175,6 +178,7 @@
             this.fiveButton.TabStop = false;
             this.fiveButton.Text = "5";
             this.fiveButton.UseVisualStyleBackColor = true;
+            this.fiveButton.Click += new System.EventHandler(this.fiveButton_Click);
             // 
             // sixButton
             // 
@@ -186,6 +190,7 @@
             this.sixButton.TabStop = false;
             this.sixButton.Text = "6";
             this.sixButton.UseVisualStyleBackColor = true;
+            this.sixButton.Click += new System.EventHandler(this.sixButton_Click);
             // 
             // minusButton
             // 
@@ -208,6 +213,7 @@
             this.sevenButton.TabStop = false;
             this.sevenButton.Text = "7";
             this.sevenButton.UseVisualStyleBackColor = true;
+            this.sevenButton.Click += new System.EventHandler(this.sevenButton_Click);
             // 
             // eightButton
             // 
@@ -219,6 +225,7 @@
             this.eightButton.TabStop = false;
             this.eightButton.Text = "8";
             this.eightButton.UseVisualStyleBackColor = true;
+            this.eightButton.Click += new System.EventHandler(this.eightButton_Click);
             // 
             // nineButton
             // 
@@ -230,6 +237,7 @@
             this.nineButton.TabStop = false;
             this.nineButton.Text = "9";
             this.nineButton.UseVisualStyleBackColor = true;
+            this.nineButton.Click += new System.EventHandler(this.nineButton_Click);
             // 
             // multiplyButton
             // 
@@ -252,6 +260,7 @@
             this.CEButton.TabStop = false;
             this.CEButton.Text = "CE";
             this.CEButton.UseVisualStyleBackColor = true;
+            this.CEButton.Click += new System.EventHandler(this.CEButton_Click);
             // 
             // CButton
             // 

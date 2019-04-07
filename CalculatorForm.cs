@@ -18,16 +18,54 @@ namespace Calculator {
             InitializeComponent();
         }
 
+        //Set state of the calculator
         private void setState(ClearState nextState) {
             state = nextState;
         }
 
+        //Buttons
+        private void CEButton_Click(object sender, EventArgs e) {
+
+        }
+
         private void zeroButton_Click(object sender, EventArgs e) {
-            state.nextState(0);
+            setState(state.nextState(0));
         }
 
         private void oneButton_Click(object sender, EventArgs e) {
-            state.nextState(1);
+            setState(state.nextState(1));
+        }
+
+        private void twoButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(2));
+        }
+
+        private void threeButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(3));
+        }
+
+        private void fourButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(4));
+        }
+
+        private void fiveButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(5));
+        }
+
+        private void sixButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(6));
+        }
+
+        private void sevenButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(7));
+        }
+
+        private void eightButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(8));
+        }
+
+        private void nineButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(9));
         }
     }
 }

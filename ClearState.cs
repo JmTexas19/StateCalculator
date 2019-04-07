@@ -39,8 +39,17 @@ namespace Calculator {
             Form calc = Application.OpenForms[0];
 
             switch (stateEvent) {
+                //Cases 0-9
                 case zeroEvent:
                 case oneEvent:
+                case twoEvent:
+                case threeEvent:
+                case fourEvent:
+                case fiveEvent:
+                case sixEvent:
+                case sevenEvent:
+                case eightEvent:
+                case nineEvent:
                     TextBox resultText = calc.Controls["resultText"] as TextBox;
                     //Append String to end
                     String text = resultText.Text;
