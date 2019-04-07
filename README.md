@@ -6,6 +6,8 @@ The 3 main states the Calculator uses are the CleanState, NextOperandState, and 
 - The NextOperandState is the operator state that only accepts Operands. 
 - The ResultState displays the final result after calculating the expression and accepts both operators and operands.
 
+![State Calculator](docs/screen1.png)
+
 Functionality in current release:
 - All Operations
 - All Clears
