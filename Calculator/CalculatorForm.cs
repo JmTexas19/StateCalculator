@@ -12,6 +12,7 @@ using System.Windows.Forms;
 namespace Calculator {
     public partial class Calculator : Form {
         State state;
+        bool[] doOnce = { false, false, false };
 
         public Calculator() {
             setState(new ClearState());

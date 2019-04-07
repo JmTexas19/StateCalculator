@@ -102,6 +102,8 @@ namespace Calculator {
                 //Other Cases
                 case negativeEvent:
                     if (!resultText.Text.Contains("-")) {
+                        //Prevent result display bug when number is too big
+                        //if (resultText.Text.Length > 10) resultText.Text = '-' + resultText.Text.Substring(0, 10);
                         resultText.Text = resultText.Text.Insert(0, "-");
                     }
                     else {

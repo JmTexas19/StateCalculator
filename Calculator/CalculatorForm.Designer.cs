@@ -23,7 +23,6 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            this.resultText = new System.Windows.Forms.TextBox();
             this.negativeButton = new System.Windows.Forms.Button();
             this.zeroButton = new System.Windows.Forms.Button();
             this.decimalButton = new System.Windows.Forms.Button();
@@ -47,25 +46,12 @@
             this.rootButton = new System.Windows.Forms.Button();
             this.squareButton = new System.Windows.Forms.Button();
             this.recipricolButton = new System.Windows.Forms.Button();
+            this.resultText = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
-            // 
-            // resultText
-            // 
-            this.resultText.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.resultText.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resultText.Location = new System.Drawing.Point(12, 12);
-            this.resultText.Multiline = true;
-            this.resultText.Name = "resultText";
-            this.resultText.ReadOnly = true;
-            this.resultText.Size = new System.Drawing.Size(258, 43);
-            this.resultText.TabIndex = 0;
-            this.resultText.TabStop = false;
-            this.resultText.Text = "0";
-            this.resultText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // negativeButton
             // 
-            this.negativeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.negativeButton.Font = new System.Drawing.Font("Meiryo UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.negativeButton.Location = new System.Drawing.Point(12, 341);
             this.negativeButton.Name = "negativeButton";
             this.negativeButton.Size = new System.Drawing.Size(60, 50);
@@ -339,6 +325,21 @@
             this.recipricolButton.UseVisualStyleBackColor = true;
             this.recipricolButton.Click += new System.EventHandler(this.recipricolButton_Click);
             // 
+            // resultText
+            // 
+            this.resultText.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.resultText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.resultText.Font = new System.Drawing.Font("Meiryo UI", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resultText.Location = new System.Drawing.Point(12, 12);
+            this.resultText.Name = "resultText";
+            this.resultText.ReadOnly = true;
+            this.resultText.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.resultText.Size = new System.Drawing.Size(258, 42);
+            this.resultText.TabIndex = 0;
+            this.resultText.TabStop = false;
+            this.resultText.Text = "0";
+            this.resultText.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -379,8 +380,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox resultText;
         private System.Windows.Forms.Button negativeButton;
         private System.Windows.Forms.Button zeroButton;
         private System.Windows.Forms.Button decimalButton;
@@ -404,6 +403,7 @@
         private System.Windows.Forms.Button rootButton;
         private System.Windows.Forms.Button squareButton;
         private System.Windows.Forms.Button recipricolButton;
+        private System.Windows.Forms.TextBox resultText;
     }
 }
 
