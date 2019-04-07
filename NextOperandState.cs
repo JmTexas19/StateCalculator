@@ -34,12 +34,50 @@ namespace Calculator {
                 case nineEvent:
                     //Replace Result
                     resultText.Text = stateEvent.ToString();
-                    return new ClearState(op, firstOperand);                     
+                    return new ClearState(op, firstOperand);
+
+                //Operation Cases
+                case addEvent:
+                    return new NextOperandState("+", firstOperand);
+                case subtractEvent:
+                    return new NextOperandState("-", firstOperand);
+                case multiplyEvent:
+                    return new NextOperandState("*", firstOperand);
+                case divideEvent:
+                    return new NextOperandState("/", firstOperand);
+
+                //Other Cases
+                case decimalEvent:
+                    resultText.Text = "0.";
+                    return new ClearState(op, firstOperand);
+
+                case equalEvent:
+                    resultText.Text = calculateOperation(resultText);
+                    return new ResultState();
             }
 
             return new NextOperandState(op, firstOperand);
         }
 
-        
+        //Calculate Operation
+        private string calculateOperation(TextBox resultText) {
+            double secondOperand = Double.Parse(firstOperand);
+
+            if (op.Contains("+")) {
+                return (Double.Parse(firstOperand) + secondOperand).ToString();
+            }
+            else if (op.Contains("-")) {
+                return (Double.Parse(firstOperand) - secondOperand).ToString();
+            }
+            else if (op.Contains("x")) {
+                return (Double.Parse(firstOperand) * secondOperand).ToString();
+            }
+            else if (op.Contains("/")) {
+                return (Double.Parse(firstOperand) / secondOperand).ToString();
+            }
+            else {
+                return resultText.Text;
+            }
+        }
     }
 }
