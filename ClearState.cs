@@ -7,6 +7,9 @@ using System.Windows.Forms;
 
 namespace Calculator {
     class ClearState : State {
+        //Operator and Operand
+        string op, firstOperand;
+
         //Events
         public const int zeroEvent = 0;
         public const int oneEvent = 1;
@@ -33,6 +36,18 @@ namespace Calculator {
         public const int squareEvent = 22;
         public const int reciprocolEvent = 23;
 
+        //Constructor
+        public ClearState() {
+            this.op = "";
+            this.firstOperand = "0";
+        }
+
+        //Overloaded Constructor
+        public ClearState(string op, string firstOperand) {
+            this.op = op;
+            this.firstOperand = firstOperand;
+        }
+
         //Process next event
         public ClearState nextState(int stateEvent) {
             //Calculator
@@ -55,11 +70,11 @@ namespace Calculator {
                     //Append String to end
                     if (!resultText.Text.Equals("0")) {
                         resultText.Text = resultText.Text.Insert(resultText.Text.Length, stateEvent.ToString());
-                        return new ClearState();
+                        return new ClearState(op, firstOperand);
                     }
                     else {
                         resultText.Text = stateEvent.ToString();
-                        return new ClearState();
+                        return new ClearState(op, firstOperand);
                     }
 
                 //Clear Cases
@@ -70,7 +85,14 @@ namespace Calculator {
 
                 //Operation Cases
                 case addEvent:
+                    resultText.Text = previousOperation(resultText);
                     return new NextOperandState("+", resultText.Text);
+                case subtractEvent:
+                    return new NextOperandState("-", resultText.Text);
+                case multiplyEvent:
+                    return new NextOperandState("x", resultText.Text);
+                case divideEvent:
+                    return new NextOperandState("/", resultText.Text);
 
                 //Other Cases
                 case negativeEvent:
@@ -80,15 +102,15 @@ namespace Calculator {
                     else {
                         resultText.Text = resultText.Text.Trim('-');
                     }
-                    return new ClearState();
+                    return new ClearState(op, firstOperand);
 
                 case decimalEvent:
                     if (!resultText.Text.Contains('.')) { 
                         resultText.Text = resultText.Text.Insert(resultText.Text.Length, ".");
-                        return new ClearState();
+                        return new ClearState(op, firstOperand);
                     }
                     else {
-                        return new ClearState();
+                        return new ClearState(op, firstOperand);
                     }
 
                 case backspaceEvent:
@@ -101,10 +123,10 @@ namespace Calculator {
                             resultText.Text = resultText.Text.Remove(resultText.Text.Length - 1, 1);
                         }
 
-                        return new ClearState();
+                        return new ClearState(op, firstOperand);
                     }
                     else {
-                        return new ClearState();
+                        return new ClearState(op, firstOperand);
                     }
 
                 case equalEvent:
@@ -131,7 +153,28 @@ namespace Calculator {
                     return new ResultState();
             }
 
-            return new ClearState();
+            return new ClearState(op, firstOperand);
+        }
+
+        //Calculate Previous Operation
+        private string previousOperation(TextBox resultText) {
+            double secondOperand = Double.Parse(resultText.Text);
+
+            if (op.Contains("+")) {
+                return (Double.Parse(firstOperand) + secondOperand).ToString();
+            }
+            else if (op.Contains("-")) {
+                return (Double.Parse(firstOperand) - secondOperand).ToString();
+            }
+            else if (op.Contains("x")) {
+                return (Double.Parse(firstOperand) * secondOperand).ToString();
+            }
+            else if (op.Contains("/")) {
+                return (Double.Parse(firstOperand) / secondOperand).ToString();
+            }
+            else {
+                return resultText.Text;
+            }
         }
     }
 }

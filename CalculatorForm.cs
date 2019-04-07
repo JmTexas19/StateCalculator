@@ -105,15 +105,15 @@ namespace Calculator {
         }
 
         private void minusButton_Click(object sender, EventArgs e) {
-
+            setState(state.nextState(14));
         }
 
         private void multiplyButton_Click(object sender, EventArgs e) {
-
+            setState(state.nextState(15));
         }
 
         private void divideButton_Click(object sender, EventArgs e) {
-
+            setState(state.nextState(16));
         }
     }
 }

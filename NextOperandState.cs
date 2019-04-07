@@ -32,30 +32,18 @@ namespace Calculator {
                 case sevenEvent:
                 case eightEvent:
                 case nineEvent:
+                    //Replace Result
+                    resultText.Text = stateEvent.ToString();
+                    return new ClearState(op, firstOperand);                     
+
+                case addEvent:
                     //Complete Previous Operation
-                    resultText.Text = previousOperation(resultText, stateEvent);
-                    return new ClearState();
+                    return new NextOperandState("+", resultText.Text);
             }
 
             return new NextOperandState(op, firstOperand);
         }
 
-        private string previousOperation(TextBox resultText, double secondOperand) {
-            if (op.Contains("+")) {
-                return (Double.Parse(firstOperand) + secondOperand).ToString();
-            }
-            else if (op.Contains("-")) {
-                return (Double.Parse(firstOperand) - secondOperand).ToString();
-            }
-            else if (op.Contains("x")) {
-                return (Double.Parse(firstOperand) * secondOperand).ToString();
-            }
-            else if (op.Contains("/")) {
-                return (Double.Parse(firstOperand) / secondOperand).ToString();
-            }
-            else {
-                return null;
-            }
-        }
+        
     }
 }
