@@ -59,9 +59,30 @@ namespace Calculator {
                     resultText.Text = "0.";
                     return new ClearState(op, firstOperand);
 
+                case negativeEvent:
+                    if (!resultText.Text.Contains("-")) {
+                        resultText.Text = resultText.Text.Insert(0, "-");
+                    }
+                    else {
+                        resultText.Text = resultText.Text.Trim('-');
+                    }
+                    return new ClearState(op, firstOperand);
+
                 case equalEvent:
                     resultText.Text = calculateOperation(resultText);
                     return new ResultState();
+
+                case rootEvent:
+                    resultText.Text = Math.Sqrt(Double.Parse(resultText.Text)).ToString();
+                    return new ClearState(op, firstOperand);
+
+                case reciprocolEvent:
+                    resultText.Text = (1 / Double.Parse(resultText.Text)).ToString();
+                    return new ClearState(op, firstOperand);
+
+                case squareEvent:
+                    resultText.Text = Math.Pow(Double.Parse(resultText.Text), 2).ToString();
+                    return new ClearState(op, firstOperand);
             }
 
             return new NextOperandState(op, firstOperand);

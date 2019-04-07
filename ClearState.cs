@@ -150,15 +150,15 @@ namespace Calculator {
 
                 case rootEvent:
                     resultText.Text = Math.Sqrt(Double.Parse(resultText.Text)).ToString();
-                    return new ResultState();
+                    return new ClearState(op, firstOperand);
 
                 case reciprocolEvent:
                     resultText.Text = (1 / Double.Parse(resultText.Text)).ToString();
-                    return new ResultState();
+                    return new ClearState(op, firstOperand);
 
                 case squareEvent:
                     resultText.Text =  Math.Pow(Double.Parse(resultText.Text), 2).ToString();
-                    return new ResultState();
+                    return new ClearState(op, firstOperand);
             }
 
             return new ClearState(op, firstOperand);
