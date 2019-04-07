@@ -87,5 +87,9 @@ namespace Calculator {
         private void equalButton_Click(object sender, EventArgs e) {
             setState(state.nextState(12));
         }
+
+        private void rootButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(21));
+        }
     }
 }

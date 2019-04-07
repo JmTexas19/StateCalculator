@@ -44,7 +44,6 @@
             this.CButton = new System.Windows.Forms.Button();
             this.backButton = new System.Windows.Forms.Button();
             this.divideButton = new System.Windows.Forms.Button();
-            this.percentButton = new System.Windows.Forms.Button();
             this.rootButton = new System.Windows.Forms.Button();
             this.squareButton = new System.Windows.Forms.Button();
             this.recipricolButton = new System.Windows.Forms.Button();
@@ -103,9 +102,9 @@
             // equalButton
             // 
             this.equalButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.equalButton.Location = new System.Drawing.Point(210, 341);
+            this.equalButton.Location = new System.Drawing.Point(210, 285);
             this.equalButton.Name = "equalButton";
-            this.equalButton.Size = new System.Drawing.Size(60, 50);
+            this.equalButton.Size = new System.Drawing.Size(60, 106);
             this.equalButton.TabIndex = 4;
             this.equalButton.TabStop = false;
             this.equalButton.Text = "=";
@@ -151,7 +150,7 @@
             // plusButton
             // 
             this.plusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.plusButton.Location = new System.Drawing.Point(210, 285);
+            this.plusButton.Location = new System.Drawing.Point(210, 229);
             this.plusButton.Name = "plusButton";
             this.plusButton.Size = new System.Drawing.Size(60, 50);
             this.plusButton.TabIndex = 8;
@@ -198,7 +197,7 @@
             // minusButton
             // 
             this.minusButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minusButton.Location = new System.Drawing.Point(210, 229);
+            this.minusButton.Location = new System.Drawing.Point(210, 173);
             this.minusButton.Name = "minusButton";
             this.minusButton.Size = new System.Drawing.Size(60, 50);
             this.minusButton.TabIndex = 12;
@@ -245,7 +244,7 @@
             // multiplyButton
             // 
             this.multiplyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.multiplyButton.Location = new System.Drawing.Point(210, 173);
+            this.multiplyButton.Location = new System.Drawing.Point(210, 117);
             this.multiplyButton.Name = "multiplyButton";
             this.multiplyButton.Size = new System.Drawing.Size(60, 50);
             this.multiplyButton.TabIndex = 16;
@@ -292,7 +291,7 @@
             // divideButton
             // 
             this.divideButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.divideButton.Location = new System.Drawing.Point(210, 117);
+            this.divideButton.Location = new System.Drawing.Point(210, 61);
             this.divideButton.Name = "divideButton";
             this.divideButton.Size = new System.Drawing.Size(60, 50);
             this.divideButton.TabIndex = 20;
@@ -300,32 +299,22 @@
             this.divideButton.Text = "÷";
             this.divideButton.UseVisualStyleBackColor = true;
             // 
-            // percentButton
-            // 
-            this.percentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.percentButton.Location = new System.Drawing.Point(12, 61);
-            this.percentButton.Name = "percentButton";
-            this.percentButton.Size = new System.Drawing.Size(60, 50);
-            this.percentButton.TabIndex = 21;
-            this.percentButton.TabStop = false;
-            this.percentButton.Text = "%";
-            this.percentButton.UseVisualStyleBackColor = true;
-            // 
             // rootButton
             // 
             this.rootButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rootButton.Location = new System.Drawing.Point(78, 61);
+            this.rootButton.Location = new System.Drawing.Point(12, 61);
             this.rootButton.Name = "rootButton";
             this.rootButton.Size = new System.Drawing.Size(60, 50);
             this.rootButton.TabIndex = 22;
             this.rootButton.TabStop = false;
             this.rootButton.Text = "√";
             this.rootButton.UseVisualStyleBackColor = true;
+            this.rootButton.Click += new System.EventHandler(this.rootButton_Click);
             // 
             // squareButton
             // 
             this.squareButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.squareButton.Location = new System.Drawing.Point(144, 61);
+            this.squareButton.Location = new System.Drawing.Point(78, 61);
             this.squareButton.Name = "squareButton";
             this.squareButton.Size = new System.Drawing.Size(60, 50);
             this.squareButton.TabIndex = 23;
@@ -336,7 +325,7 @@
             // recipricolButton
             // 
             this.recipricolButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recipricolButton.Location = new System.Drawing.Point(210, 61);
+            this.recipricolButton.Location = new System.Drawing.Point(144, 61);
             this.recipricolButton.Name = "recipricolButton";
             this.recipricolButton.Size = new System.Drawing.Size(60, 50);
             this.recipricolButton.TabIndex = 24;
@@ -352,7 +341,6 @@
             this.Controls.Add(this.recipricolButton);
             this.Controls.Add(this.squareButton);
             this.Controls.Add(this.rootButton);
-            this.Controls.Add(this.percentButton);
             this.Controls.Add(this.divideButton);
             this.Controls.Add(this.backButton);
             this.Controls.Add(this.CButton);
@@ -407,7 +395,6 @@
         private System.Windows.Forms.Button CButton;
         private System.Windows.Forms.Button backButton;
         private System.Windows.Forms.Button divideButton;
-        private System.Windows.Forms.Button percentButton;
         private System.Windows.Forms.Button rootButton;
         private System.Windows.Forms.Button squareButton;
         private System.Windows.Forms.Button recipricolButton;

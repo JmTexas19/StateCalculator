@@ -38,6 +38,8 @@ namespace Calculator {
             //Calculator
             Form calc = Application.OpenForms[0];
             TextBox resultText = calc.Controls["resultText"] as TextBox;
+            int index;
+            double resultDouble;
 
             switch (stateEvent) {
                 //Cases 0-9
@@ -100,13 +102,27 @@ namespace Calculator {
                         return new ClearState();
                     }
                 case equalEvent:
-                    int index = resultText.Text.IndexOf('.');
-
                     //Trim end if . or 0 or .0
-                    if(resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
-                        resultText.Text = resultText.Text.TrimEnd('0', '.');
+                    if (resultText.Text.Contains(".")) {
+                        index = resultText.Text.IndexOf('.');
+                        if (resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
+                            resultText.Text = resultText.Text.TrimEnd('0', '.');
+                        }
                     }
 
+                    return new ResultState();
+
+                case rootEvent:
+                    //Trim end if . or 0 or .0
+                    if (resultText.Text.Contains(".")) {
+                        index = resultText.Text.IndexOf('.');
+                        if (resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
+                            resultText.Text = resultText.Text.TrimEnd('0', '.');
+                        }
+                    }
+
+                    //Root Result
+                    resultText.Text = Math.Sqrt(Double.Parse(resultText.Text)).ToString();
                     return new ResultState();
             }
 
