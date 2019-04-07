@@ -71,5 +71,13 @@ namespace Calculator {
         private void nineButton_Click(object sender, EventArgs e) {
             setState(state.nextState(9));
         }
+
+        private void negativeButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(10));
+        }
+
+        private void decimalButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(11));
+        }
     }
 }

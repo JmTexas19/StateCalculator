@@ -74,6 +74,7 @@
             this.negativeButton.TabStop = false;
             this.negativeButton.Text = "+-";
             this.negativeButton.UseVisualStyleBackColor = true;
+            this.negativeButton.Click += new System.EventHandler(this.negativeButton_Click);
             // 
             // zeroButton
             // 
@@ -97,6 +98,7 @@
             this.decimalButton.TabStop = false;
             this.decimalButton.Text = ".";
             this.decimalButton.UseVisualStyleBackColor = true;
+            this.decimalButton.Click += new System.EventHandler(this.decimalButton_Click);
             // 
             // equalButton
             // 

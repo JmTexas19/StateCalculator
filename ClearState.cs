@@ -37,7 +37,7 @@ namespace Calculator {
         public ClearState nextState(int stateEvent) {
             //Calculator
             Form calc = Application.OpenForms[0];
-            TextBox resultText;
+            TextBox resultText = calc.Controls["resultText"] as TextBox;
 
             switch (stateEvent) {
                 //Cases 0-9
@@ -51,12 +51,9 @@ namespace Calculator {
                 case sevenEvent:
                 case eightEvent:
                 case nineEvent:
-                    resultText = calc.Controls["resultText"] as TextBox;
                     //Append String to end
-                    String text = resultText.Text;
-                    if (!text.Equals("0")) {
-                        text = text.Insert(text.Length, stateEvent.ToString());
-                        resultText.Text = text;
+                    if (!resultText.Text.Equals("0")) {
+                        resultText.Text = resultText.Text.Insert(resultText.Text.Length, stateEvent.ToString());
                         return new ClearState();
                     }
                     else {
@@ -67,9 +64,26 @@ namespace Calculator {
                 //Clear Cases
                 case ceEvent:
                 case cEvent:
-                    resultText = calc.Controls["resultText"] as TextBox;
                     resultText.Text = "0";
                     return new ClearState();
+
+                case negativeEvent:
+                    if (!resultText.Text.Contains("-")) {
+                        resultText.Text = resultText.Text.Insert(0, "-");
+                    }
+                    else {
+                        resultText.Text = resultText.Text.Trim('-');
+                    }
+                    return new ClearState();
+
+                case decimalEvent:
+                    if (!resultText.Text.Contains('.')) { 
+                        resultText.Text = resultText.Text.Insert(resultText.Text.Length, ".");
+                        return new ClearState();
+                    }
+                    else{
+                        return new ClearState();
+                    }
             }
 
             return new ClearState();
