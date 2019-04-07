@@ -286,6 +286,7 @@
             this.backButton.TabStop = false;
             this.backButton.Text = "<-";
             this.backButton.UseVisualStyleBackColor = true;
+            this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
             // divideButton
             // 

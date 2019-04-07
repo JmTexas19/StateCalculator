@@ -67,6 +67,7 @@ namespace Calculator {
                     resultText.Text = "0";
                     return new ClearState();
 
+                //Other Cases
                 case negativeEvent:
                     if (!resultText.Text.Contains("-")) {
                         resultText.Text = resultText.Text.Insert(0, "-");
@@ -75,13 +76,27 @@ namespace Calculator {
                         resultText.Text = resultText.Text.Trim('-');
                     }
                     return new ClearState();
-
                 case decimalEvent:
                     if (!resultText.Text.Contains('.')) { 
                         resultText.Text = resultText.Text.Insert(resultText.Text.Length, ".");
                         return new ClearState();
                     }
-                    else{
+                    else {
+                        return new ClearState();
+                    }
+                case backspaceEvent:
+                    if (!resultText.Text.Equals("0")) {
+                        //Make sure text box isn't left blank
+                        if (resultText.Text.Length <= 1) {
+                            resultText.Text = "0";
+                        }
+                        else {
+                            resultText.Text = resultText.Text.Remove(resultText.Text.Length - 1, 1);
+                        }
+
+                        return new ClearState();
+                    }
+                    else {
                         return new ClearState();
                     }
             }
