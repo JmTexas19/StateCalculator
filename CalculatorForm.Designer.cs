@@ -157,6 +157,7 @@
             this.plusButton.TabStop = false;
             this.plusButton.Text = "+";
             this.plusButton.UseVisualStyleBackColor = true;
+            this.plusButton.Click += new System.EventHandler(this.plusButton_Click);
             // 
             // fourButton
             // 
@@ -204,6 +205,7 @@
             this.minusButton.TabStop = false;
             this.minusButton.Text = "-";
             this.minusButton.UseVisualStyleBackColor = true;
+            this.minusButton.Click += new System.EventHandler(this.minusButton_Click);
             // 
             // sevenButton
             // 
@@ -251,6 +253,7 @@
             this.multiplyButton.TabStop = false;
             this.multiplyButton.Text = "x";
             this.multiplyButton.UseVisualStyleBackColor = true;
+            this.multiplyButton.Click += new System.EventHandler(this.multiplyButton_Click);
             // 
             // CEButton
             // 
@@ -298,6 +301,7 @@
             this.divideButton.TabStop = false;
             this.divideButton.Text = "÷";
             this.divideButton.UseVisualStyleBackColor = true;
+            this.divideButton.Click += new System.EventHandler(this.divideButton_Click);
             // 
             // rootButton
             // 

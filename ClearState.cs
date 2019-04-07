@@ -21,9 +21,9 @@ namespace Calculator {
         public const int negativeEvent = 10;
         public const int decimalEvent = 11;
         public const int equalEvent = 12;
-        public const int plusEvent = 13;
-        public const int minusEvent = 14;
-        public const int timesEvent = 15;
+        public const int addEvent = 13;
+        public const int subtractEvent = 14;
+        public const int multiplyEvent = 15;
         public const int divideEvent = 16;
         public const int ceEvent = 17;
         public const int cEvent = 18;
@@ -68,6 +68,10 @@ namespace Calculator {
                     resultText.Text = "0";
                     return new ClearState();
 
+                //Operation Cases
+                case addEvent:
+                    return new NextOperandState("+", resultText.Text);
+
                 //Other Cases
                 case negativeEvent:
                     if (!resultText.Text.Contains("-")) {
@@ -88,8 +92,8 @@ namespace Calculator {
                     }
 
                 case backspaceEvent:
+                    //Make sure text box isn't left blank
                     if (!resultText.Text.Equals("0")) {
-                        //Make sure text box isn't left blank
                         if (resultText.Text.Length <= 1) {
                             resultText.Text = "0";
                         }
@@ -115,41 +119,14 @@ namespace Calculator {
                     return new ResultState();
 
                 case rootEvent:
-                    //Trim end if . or 0 or .0
-                    if (resultText.Text.Contains(".")) {
-                        index = resultText.Text.IndexOf('.');
-                        if (resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
-                            resultText.Text = resultText.Text.TrimEnd('0', '.');
-                        }
-                    }
-
-                    //Root Result
                     resultText.Text = Math.Sqrt(Double.Parse(resultText.Text)).ToString();
                     return new ResultState();
 
                 case reciprocolEvent:
-                    //Trim end if . or 0 or .0
-                    if (resultText.Text.Contains(".")) {
-                        index = resultText.Text.IndexOf('.');
-                        if (resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
-                            resultText.Text = resultText.Text.TrimEnd('0', '.');
-                        }
-                    }
-
-                    //Recipricol
                     resultText.Text = (1 / Double.Parse(resultText.Text)).ToString();
                     return new ResultState();
 
                 case squareEvent:
-                    //Trim end if . or 0 or .0
-                    if (resultText.Text.Contains(".")) {
-                        index = resultText.Text.IndexOf('.');
-                        if (resultText.Text.Substring(index).Equals(".0") | resultText.Text.Substring(index).Equals(".")) {
-                            resultText.Text = resultText.Text.TrimEnd('0', '.');
-                        }
-                    }
-
-                    //Square
                     resultText.Text =  Math.Pow(Double.Parse(resultText.Text), 2).ToString();
                     return new ResultState();
             }

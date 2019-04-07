@@ -98,6 +98,22 @@ namespace Calculator {
 
         private void recipricolButton_Click(object sender, EventArgs e) {
             setState(state.nextState(23));
-        }   
+        }
+
+        private void plusButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(13));
+        }
+
+        private void minusButton_Click(object sender, EventArgs e) {
+
+        }
+
+        private void multiplyButton_Click(object sender, EventArgs e) {
+
+        }
+
+        private void divideButton_Click(object sender, EventArgs e) {
+
+        }
     }
 }
