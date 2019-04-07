@@ -25,7 +25,11 @@ namespace Calculator {
 
         //Buttons
         private void CEButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(17));
+        }
 
+        private void CButton_Click(object sender, EventArgs e) {
+            setState(state.nextState(18));
         }
 
         private void zeroButton_Click(object sender, EventArgs e) {

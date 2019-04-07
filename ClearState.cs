@@ -25,8 +25,8 @@ namespace Calculator {
         const int minusEvent = 14;
         const int timesEvent = 15;
         const int divideEvent = 16;
-        const int CEEvent = 17;
-        const int CEvent = 18;
+        const int ceEvent = 17;
+        const int cEvent = 18;
         const int backspaceEvent = 19;
         const int percentEvent = 20;
         const int rootEvent = 21;
@@ -37,6 +37,7 @@ namespace Calculator {
         public ClearState nextState(int stateEvent) {
             //Calculator
             Form calc = Application.OpenForms[0];
+            TextBox resultText;
 
             switch (stateEvent) {
                 //Cases 0-9
@@ -50,7 +51,7 @@ namespace Calculator {
                 case sevenEvent:
                 case eightEvent:
                 case nineEvent:
-                    TextBox resultText = calc.Controls["resultText"] as TextBox;
+                    resultText = calc.Controls["resultText"] as TextBox;
                     //Append String to end
                     String text = resultText.Text;
                     if (!text.Equals("0")) {
@@ -63,6 +64,12 @@ namespace Calculator {
                         return new ClearState();
                     }
 
+                //Clear Cases
+                case ceEvent:
+                case cEvent:
+                    resultText = calc.Controls["resultText"] as TextBox;
+                    resultText.Text = "0";
+                    return new ClearState();
             }
 
             return new ClearState();

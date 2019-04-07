@@ -272,6 +272,7 @@
             this.CButton.TabStop = false;
             this.CButton.Text = "C";
             this.CButton.UseVisualStyleBackColor = true;
+            this.CButton.Click += new System.EventHandler(this.CButton_Click);
             // 
             // backButton
             // 
